@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice City Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <header class="topbar">
+    <h1>Vice City Cover Studio</h1>
+    <p>Your photo + a caption = a GTA-style poster cover. Photos never leave this machine.</p>
+  </header>
+  <div class="workbench">
+    <section class="controls" aria-label="Cover controls">
+      <h2>1 · Photo</h2>
+      <label class="file">Choose photos from your machine
+        <input id="photo" type="file" accept="image/*" multiple>
+      </label>
+      <div class="row">
+        <button id="sampleBoulevard" type="button">Sample: boulevard</button>
+        <button id="samplePier" type="button">Sample: pier</button>
+      </div>
+      <button id="fillAll" type="button">One photo in every panel</button>
+
+      <h2>2 · Layout &amp; grade</h2>
+      <div id="layouts" class="pickrow" role="group" aria-label="Layout"></div>
+      <div id="grades" class="pickrow" role="group" aria-label="Colour grade"></div>
+
+      <h2>3 · Caption</h2>
+      <label>Title <input id="title" type="text" maxlength="24" value="PIER PRESSURE"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="32" value="vice city nights"></label>
+
+      <h2>4 · This panel</h2>
+      <div id="panels" class="chips"></div>
+      <label>Photo in this panel
+        <select id="panelPhoto"></select>
+      </label>
+      <label>Zoom <span id="zoomVal">100%</span>
+        <input id="zoom" type="range" min="1" max="3" step="0.01" value="1">
+      </label>
+      <label>Position left–right <input id="posX" type="range" min="0" max="100" step="1" value="50"></label>
+      <label>Position up–down <input id="posY" type="range" min="0" max="100" step="1" value="50"></label>
+      <p class="hint">Tip: drag a panel on the cover to move its photo, scroll over it to zoom.</p>
+
+      <h2>5 · Export</h2>
+      <div id="sizes" class="pickrow" role="group" aria-label="Post size"></div>
+      <button id="exportBtn" type="button" class="export">Export PNG</button>
+      <p id="status" role="status"></p>
+    </section>
+    <section class="stage" aria-label="Cover preview">
+      <canvas id="preview" width="1080" height="1080" aria-label="The cover preview"></canvas>
+      <p id="previewSize"></p>
+    </section>
+  </div>
+  <footer class="foot">
+    <p>All art, lettering and grades are drawn by this app in your browser. No Rockstar Games logo, artwork or font is used. Sample photos were made with an image model for make.fun and are free to use.</p>
+  </footer>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
